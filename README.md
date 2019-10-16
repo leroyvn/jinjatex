@@ -1,4 +1,4 @@
-# JinjaTeX: A Jinja templating environment for LaTeX document generation
+# JinjaTeX: LaTeX Jinja template expansion tools
 
 JinjaTeX is a Jinja templating environment for LaTeX document generation.
 
@@ -7,6 +7,3 @@ To [Brad Ericson's original idea](http://eosrei.net/articles/2015/11/latex-templ
 ## Installation
 
 ## Usage
-
-## License
-  
