@@ -1,0 +1,12 @@
+%# This is a line comment.
+This is a \texttt{\\VAR} test: Hello \VAR{world}!
+
+\#{
+This is a block comment.
+\#}
+This is a \texttt{statement} test:
+%% for x in some_list
+\VAR{x}
+%% endfor
+
+\VAR{some_list|join}

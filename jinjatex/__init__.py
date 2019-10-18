@@ -50,6 +50,8 @@ base_conf = dict(
     line_statement_prefix='%%',
     line_comment_prefix='%#',
     trim_blocks=True,
+    lstrip_blocks=False,
+    keep_trailing_newline=True,
     autoescape=False,
     loader=jinja2.FileSystemLoader(os.path.abspath(".")),
 )
