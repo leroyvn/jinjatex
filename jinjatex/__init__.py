@@ -61,4 +61,6 @@ def new_env(**kwargs):
     env = jinja2.Environment(**{**base_conf, **kwargs})
     env.globals["escape_underscores"] = escape_underscores
     env.globals["escape_latex"] = escape_latex
+    env.filters["escape_underscores"] = escape_underscores
+    env.filters["escape_latex"] = escape_latex
     return env
