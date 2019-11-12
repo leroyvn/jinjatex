@@ -39,6 +39,25 @@ def escape_underscores(text: str) -> str:
     return text.replace("_", "\_")
 
 
+UNITS = {"min": "\minute",
+         "h": "\hour",
+         "kg": "\kilogram",
+         "g": "\gram",
+         "celsius": "\degreeCelsius",
+         "L": "\litre",
+         "dL": "\deci\litre",
+         "cL": "\centi\litre",
+         "mL": "\milli\litre",
+         "pc": "\piece"}
+
+
+def siunit(value: float, unit: str) -> str:
+    try:
+        return f"\SI{{{value}}}{{{UNITS[unit]}}}"
+    except KeyError:
+        raise ValueError(f"unsupported unit {unit}")
+
+
 # Jinja LaTeX environment (see here for customised, LaTeX-compatible markup)
 base_conf = dict(
     block_start_string=r'\BLOCK{',
@@ -61,6 +80,7 @@ def new_env(**kwargs):
     env = jinja2.Environment(**{**base_conf, **kwargs})
     env.globals["escape_underscores"] = escape_underscores
     env.globals["escape_latex"] = escape_latex
+    env.globals["siunit"] = siunit
     env.filters["escape_underscores"] = escape_underscores
     env.filters["escape_latex"] = escape_latex
     return env
